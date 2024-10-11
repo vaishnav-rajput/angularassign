@@ -13,22 +13,23 @@ export class LoginComponent {
   userService = inject(UserService)
 
   userObj : User = new User();
-  token: string ;
+  // token!: string ;
 
   router = inject(Router)
 
   onLogin(){
-    this.userService.loginUser(this.userObj).subscribe((res: any) => {
+    this.userService.loginUser(this.userObj).subscribe(
+      (res: any) => {
       if(res.access_token){
-        alert("user logged in")
-        localStorage.setItem("userToken", JSON.stringify(res.access_token))
-        this.token = res.access_token
-        this.router.navigateByUrl('/home')
-        this.userObj = new User()
-
-      } else {
-        alert(res.message)
-      }
+        alert("user logged in");
+        localStorage.setItem("userToken", JSON.stringify(res.access_token));
+        this.userService.setToken(res.access_token)
+        // this.token = res.access_token;
+        this.router.navigateByUrl('/home');
+        this.userObj = new User();
+      } 
+    },(error) => {
+      console.error('An error occurred: ', error);
     }
   )
     
