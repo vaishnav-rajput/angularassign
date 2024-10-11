@@ -1,1 +1,21 @@
-<p>login works!</p>
+
+<div class="parent-container">
+    <!-- login div -->
+    <div class="login-container">
+        <form class="login-form" #form = "ngForm">
+            <div>
+                <label>Email</label>
+                <input type="email"  name="email" #email = 'ngModel' required [(ngModel)]="userObj.email"/>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="text"  name="password" #password  = 'ngModel' required [(ngModel)]="userObj.password"/>
+            </div>
+            <div>
+                <button type="submit" (click)="onLogin()">
+                        Login
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

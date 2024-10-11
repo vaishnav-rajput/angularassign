@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AsyncPipe, CommonModule, DatePipe } from '@angular/common';
 import { UserComponent } from './components/user/user.component';
 import { HomeComponent } from './components/home/home.component';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HomeComponent } from './components/home/home.component';
     ReactiveFormsModule,
     DatePipe,
     AsyncPipe,
+    HttpClientModule
     
   ],
   providers: [],
