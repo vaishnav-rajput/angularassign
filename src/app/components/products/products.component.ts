@@ -11,5 +11,14 @@ export class ProductsComponent {
   productList: Product[] = []
 
   productService = inject(ProductsService)
+
+  ngOnInit(){
+    
+  }
   
+  loadProducts(){
+    this.productService.getAllProducts().subscribe((res: Product) => {
+      // this.productList = res
+    })
+  }
 }
