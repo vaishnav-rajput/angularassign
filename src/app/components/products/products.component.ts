@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Product } from 'src/app/model/interface/Products';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
+  productList: Product[] = []
+
+  productService = inject(ProductsService)
   
 }

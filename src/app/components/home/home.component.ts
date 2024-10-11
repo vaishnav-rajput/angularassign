@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from 'src/app/model/interface/Products';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  
+  productList : Product[] = []
+
+  ngOnInit(){
+
+  }
+
+  loadProducts(){
+    
+  }
 }
