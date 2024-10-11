@@ -12,7 +12,8 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent {
   userService = inject(UserService)
 
-  userObj : User = new User()
+  userObj : User = new User();
+  token: string ;
 
   router = inject(Router)
 
@@ -21,7 +22,7 @@ export class LoginComponent {
       if(res.access_token){
         alert("user logged in")
         localStorage.setItem("userToken", JSON.stringify(res.access_token))
-
+        this.token = res.access_token
         this.router.navigateByUrl('/home')
         this.userObj = new User()
 
