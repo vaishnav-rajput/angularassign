@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable , pipe, of} from 'rxjs';
 import { ProductsAPIResponseModel, Product } from '../model/interface/Products';
 
 @Injectable({
@@ -22,7 +22,12 @@ export class ProductsService {
   }
 
   getAllProducts(): Observable<ProductsAPIResponseModel>{
-    return this.http.get<ProductsAPIResponseModel>("https://fakestoreapi.in/api/products")
+    return this.http.get<ProductsAPIResponseModel>("https://fakestoreapi.in/api/products").pipe(
+      catchError(error => {
+        console.error("An error occurred", error);
+          return of({status: error, message: 'failed to fetch products', products: [] });
+      })
+    )
   }
 
 

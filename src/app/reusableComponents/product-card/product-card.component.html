@@ -8,6 +8,9 @@
       <p class="product-price">Price: {{ price | currencyConverter }}</p>
       <p class="product-color">Color: <span [style.background]="color" class="color-swatch"></span> {{ color }}</p>
       <p class="product-discount" *ngIf="discount > 0">Discount: {{ discount }}%</p>
+      
+        <ng-content select=".edit"></ng-content>
+        <ng-content select=".delete"></ng-content>
     </div>
   </div>
   
