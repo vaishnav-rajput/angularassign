@@ -1,0 +1,13 @@
+<div class="search-container">
+    <input 
+      type="text" 
+      [(ngModel)]="searchFor" 
+      placeholder="Search..." 
+      class="search-input" 
+      (input)="onSearchTextChanged()" 
+      
+    />
+    <!-- this onSearchTextChanged() raises the event -->
+    <!-- <button (click)="onSearchTextChanged()" class="search-button">Search</button> -->
+  </div>
+  

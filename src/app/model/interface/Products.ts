@@ -1,14 +1,21 @@
 export interface Product {
     id:          number;
     title:       string;
+    image:       string;
     price:       number;
     description: string;
-    category:    Category;
-    images:      string[];
+    brand:       string;
+    model:       string;
+    color:       string;
+    category:    string;
+    popular:     boolean;
+    discount:    number;
 }
 
-export interface Category {
-    id:    number;
-    name:  string;
-    image: string;
+
+export interface ProductsAPIResponseModel {
+    status: string;
+    message: string;
+    products: any[];
+
 }

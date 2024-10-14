@@ -33,7 +33,16 @@
         color: #666;
         margin-bottom: 12px;
       }
-  
+
+      
+    .product-image {
+      width: 100%;
+      height: auto;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      object-fit: cover; /* Ensures image scales nicely */
+    }
+
       .product-price {
         font-size: 1.2rem;
         font-weight: bold;

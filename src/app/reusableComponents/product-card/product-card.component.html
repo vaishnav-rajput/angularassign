@@ -3,8 +3,9 @@
       <h2 class="product-title">{{ title.slice(0,50) }}</h2>
     </div>
     <div class="product-body">
+      <img [src]="image" alt="{{ title }}" class="product-image" />
       <p class="product-description">{{ description.slice(0,100) }}</p>
-      <p class="product-price">Price: ${{ price }}</p>
+      <p class="product-price">Price: {{ price | currencyConverter }}</p>
       <p class="product-color">Color: <span [style.background]="color" class="color-swatch"></span> {{ color }}</p>
       <p class="product-discount" *ngIf="discount > 0">Discount: {{ discount }}%</p>
     </div>

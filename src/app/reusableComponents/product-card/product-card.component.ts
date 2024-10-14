@@ -11,5 +11,7 @@ export class ProductCardComponent {
   @Input() price!: number;
   @Input() color!: string;
   @Input() discount!: number;
-  
+  @Input() image!: string;
+
+
 }

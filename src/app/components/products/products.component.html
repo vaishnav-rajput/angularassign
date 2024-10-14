@@ -1,15 +1,29 @@
+<ng-template  #loading>
+  <div class="loader-container">
+  <div class="loader"></div> 
+    
+  </div>
+
+
+</ng-template>
 
 <div class="products-section">
+    <app-search-bar (searchTextChanged)="onSearchEntered($event)"></app-search-bar>
     <div class="product-grid">
-      <!-- Loop through each product in productList and pass values to the product card component -->
-      <app-product-card
-        *ngFor="let product of productList"
+      <ng-container *ngIf="productList.length > 0; else loading ">
+        <app-product-card
+        *ngFor="let product of productList | filter: searchText"
         [title]="product.title"
         [description]="product.description"
         [price]="product.price"
         [color]="product.color"
-        [discount]="product.discount">
+        [discount]="product.discount"
+        [image]="product.image"
+        >
       </app-product-card>
+      </ng-container>
+      <!-- Loop through each product in productList and pass values to the product card component -->
+      
     </div>
   </div>
   

@@ -15,7 +15,10 @@ import {HttpClientModule} from '@angular/common/http';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ProductCardComponent } from './reusableComponents/product-card/product-card.component';
 import { NextPageComponent } from './reusableComponents/next-page/next-page.component';
-import { PrevPageComponent } from './reusableComponents/prev-page/prev-page.component'
+import { PrevPageComponent } from './reusableComponents/prev-page/prev-page.component';
+import { SearchBarComponent } from './reusableComponents/search-bar/search-bar.component';
+import { CurrencyConverterPipe } from './pipes/currency-converter.pipe';
+import { FilterPipe } from './pipes/filter.pipe'
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { PrevPageComponent } from './reusableComponents/prev-page/prev-page.comp
     CategoriesComponent,
     ProductCardComponent,
     NextPageComponent,
-    PrevPageComponent
+    PrevPageComponent,
+    SearchBarComponent,
+    CurrencyConverterPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
