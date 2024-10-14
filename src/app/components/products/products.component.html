@@ -1,2 +1,15 @@
 
+<div class="products-section">
+    <div class="product-grid">
+      <!-- Loop through each product in productList and pass values to the product card component -->
+      <app-product-card
+        *ngFor="let product of productList"
+        [title]="product.title"
+        [description]="product.description"
+        [price]="product.price"
+        [color]="product.color"
+        [discount]="product.discount">
+      </app-product-card>
+    </div>
+  </div>
   

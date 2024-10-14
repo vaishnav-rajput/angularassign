@@ -8,17 +8,19 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  productList: Product[] = []
+  productList: any[] = []
 
   productService = inject(ProductsService)
 
   ngOnInit(){
-    
+    this.loadProducts()
   }
   
   loadProducts(){
-    this.productService.getAllProducts().subscribe((res: Product) => {
+    this.productService.getAllProducts().subscribe((res: any) => {
       // this.productList = res
+      this.productList = res.products
+      console.log("products ", this.productList)
     })
   }
 }

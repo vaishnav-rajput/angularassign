@@ -23,7 +23,7 @@ export class ProductsService {
 
 
 
-  getAllProducts(): Observable<Product>{
-    return this.http.get<Product>("https://api.escuelajs.co/api/v1/products?offset=" + this.offset + "&limit=10")
+  getAllProducts(): Observable<any[]>{
+    return this.http.get<any[]>("https://fakestoreapi.in/api/products")
   }
 }
