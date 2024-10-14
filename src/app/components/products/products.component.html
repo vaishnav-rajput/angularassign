@@ -20,6 +20,8 @@
         [discount]="product.discount"
         [image]="product.image"
         >
+        
+        <!-- *ngIf="searchText === null || product.title.toLowerCase().includes(searchText)" -->
       </app-product-card>
       </ng-container>
       <!-- Loop through each product in productList and pass values to the product card component -->

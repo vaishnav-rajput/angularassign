@@ -5,8 +5,13 @@
       placeholder="Search..." 
       class="search-input" 
       (input)="onSearchTextChanged()" 
-      
+      #searching 
+      (keyup)="0"
+
     />
+    
+    <!-- keyup event doesn't perform anything since "0" but it signifies that change has taken place -->
+    <p *ngIf="searchFor" class="searchingFor">searching for... {{searching.value}}</p>
     <!-- this onSearchTextChanged() raises the event -->
     <!-- <button (click)="onSearchTextChanged()" class="search-button">Search</button> -->
   </div>
