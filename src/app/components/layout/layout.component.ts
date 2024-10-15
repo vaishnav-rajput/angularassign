@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd, RouterEvent } from '@angular/router';
 import { User } from 'src/app/model/class/User';
 import { UserService } from 'src/app/services/user.service';
 
@@ -19,20 +19,38 @@ export class LayoutComponent {
 
   ngOnInit(){
     this.updateAuthState();
+
+    // this.router.events.subscribe((event) = > {
+    //   if(event instanceof NavigationEnd){
+    //     this.updateAuthState();
+    //   }
+    // })
+    this.router.events.subscribe((event) => {
+      if(event instanceof NavigationEnd){
+        this.updateAuthState()
+      }
+    })
   }
+
+
 
   updateAuthState(){
     this.isLoggedIn = this.userService.isLoggedIn();
+    console.log("is logged In state is ", this.isLoggedIn)
+    
   }
 
   handleAuth(){
     if(this.isLoggedIn){
-      this.userService.clearToken;
+      this.userService.clearToken();
       this.isLoggedIn = false;
       this.router.navigate(['login'])
 
     } else{
       this.router.navigateByUrl('login')
     }
+  }
+  goToHome(){
+    this.router.navigateByUrl('/home')
   }
 }

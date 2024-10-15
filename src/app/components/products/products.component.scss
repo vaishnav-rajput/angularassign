@@ -42,3 +42,17 @@
     80%  {text-shadow:    0  0 0 #000,10ch 0 0 #000;background-size:100% 3px}
     100% {text-shadow: -10ch 0 0 #000,0    0 0 #000}
 }
+
+.product-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #28a745;
+  margin-bottom: 8px;
+}

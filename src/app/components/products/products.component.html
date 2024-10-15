@@ -8,18 +8,17 @@
 </ng-template>
 
 <div class="products-section">
-    <app-search-bar (searchTextChanged)="onSearchEntered($event)"></app-search-bar>
+    <app-search-bar (searchTextChanged)="onSearchEntered($event.searchText, $event.event)"></app-search-bar>
     <div class="product-grid">
       <ng-container *ngIf="productList.length > 0; else loading ">
         <app-product-card
         *ngFor="let product of productList | filter: searchText"
-        [title]="product.title"
-        [description]="product.description"
-        [price]="product.price"
-        [color]="product.color"
-        [discount]="product.discount"
-        [image]="product.image"
+       
+        [product]="product"
         >
+      <h2 class="product-title">{{ product.title.slice(0,50) }}</h2>
+      <p class="product-price">Price: {{ product.price | currencyConverter }}</p>
+
         <button class="edit">Edit</button>
         <button class="delete">Delete</button>
         

@@ -29,7 +29,8 @@ export class ProductsComponent {
   }
 
   //emitted data by the event will be received as a parameter
-  onSearchEntered(searchValue: string){
+  onSearchEntered(searchValue: string, event: Event){
+    event.stopPropagation()
     this.searchText = searchValue;
     console.log("search for ", this.searchText)
   }

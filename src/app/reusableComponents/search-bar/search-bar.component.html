@@ -1,10 +1,11 @@
 <div class="search-container">
+
     <input 
       type="text" 
       [(ngModel)]="searchFor" 
       placeholder="Search..." 
       class="search-input" 
-      (input)="onSearchTextChanged()" 
+      (input)="onSearchTextChanged($event)" 
       #searching 
       (keyup)="0"
 
@@ -14,5 +15,6 @@
     <p *ngIf="searchFor" class="searchingFor">searching for... {{searching.value}}</p>
     <!-- this onSearchTextChanged() raises the event -->
     <!-- <button (click)="onSearchTextChanged()" class="search-button">Search</button> -->
+  
   </div>
   

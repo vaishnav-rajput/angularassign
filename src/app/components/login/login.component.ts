@@ -22,8 +22,9 @@ export class LoginComponent {
       (res: any) => {
       if(res.access_token){
         alert("user logged in");
-        localStorage.setItem("userToken", JSON.stringify(res.access_token));
+        // localStorage.setItem("token", res.access_token)
         this.userService.setToken(res.access_token)
+        console.log("the token set to ", res.access_token)
         // this.token = res.access_token;
         this.router.navigateByUrl('/home');
         this.userObj = new User();

@@ -1,19 +1,20 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.scss']
+  styleUrls: ['./search-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchBarComponent {
 
   searchFor!: string ;
 
-  @Output() searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
+  @Output() searchTextChanged: EventEmitter<{searchText: string, event: Event}> = new EventEmitter();
 
 
-  onSearchTextChanged(){
-    this.searchTextChanged.emit(this.searchFor)
+  onSearchTextChanged(event: Event){
+    this.searchTextChanged.emit({searchText: this.searchFor, event: event})
   }
 
 }

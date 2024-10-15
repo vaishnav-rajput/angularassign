@@ -14,6 +14,7 @@ export class UserService {
 
   setToken(token: string){
     this.token = token;
+    localStorage.setItem('token', token)
   }
 
   getToken() : string | null{
@@ -21,7 +22,7 @@ export class UserService {
   }
 
   isLoggedIn() : boolean {
-    return this.token!== null
+    return localStorage.getItem('token') !== null
   }
 
   clearToken(){
