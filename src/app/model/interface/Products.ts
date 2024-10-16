@@ -13,7 +13,7 @@ export interface Product {
 }
 
 
-export interface ProductsAPIResponseModel {
+export interface ProductsAPIResponseModel {   
     status: string;
     message: string;
     products: any[];

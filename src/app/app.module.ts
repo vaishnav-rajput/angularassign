@@ -18,7 +18,13 @@ import { NextPageComponent } from './reusableComponents/next-page/next-page.comp
 import { PrevPageComponent } from './reusableComponents/prev-page/prev-page.component';
 import { SearchBarComponent } from './reusableComponents/search-bar/search-bar.component';
 import { CurrencyConverterPipe } from './pipes/currency-converter.pipe';
-import { FilterPipe } from './pipes/filter.pipe'
+import { FilterPipe } from './pipes/filter.pipe';
+import { ProductUpdateComponent } from './reusableComponents/product-update/product-update.component'
+import { CanDeactivateGuardService } from './services/candeactivate-guard.service';
+import { HighlightDirective } from './directives/highlight.directive';
+import { CreateProductComponent } from './components/create-product/create-product.component';
+import { ShowProductsComponent } from './reusableComponents/show-products/show-products.component';
+import { ProductFormComponent } from './reusableComponents/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,12 @@ import { FilterPipe } from './pipes/filter.pipe'
     PrevPageComponent,
     SearchBarComponent,
     CurrencyConverterPipe,
-    FilterPipe
+    FilterPipe,
+    ProductUpdateComponent,
+    HighlightDirective,
+    CreateProductComponent,
+    ShowProductsComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -47,10 +58,11 @@ import { FilterPipe } from './pipes/filter.pipe'
     ReactiveFormsModule,
     DatePipe,
     AsyncPipe,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [CanDeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

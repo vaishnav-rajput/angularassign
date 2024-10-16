@@ -1,0 +1,33 @@
+
+<div class="product-form">
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" > 
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" #title formControlName="title" type="text" placeholder="Enter product title" />
+      </div>
+  
+      <div class="form-group">
+        <label for="brand">Brand</label>
+        <input id="brand" #brand formControlName="brand"  type="text" placeholder="Enter brand name" />
+      </div>
+  
+      <div class="form-group">
+        <label for="model">Model</label>
+        <input id="model" formControlName="model"  type="text" placeholder="Enter model" />
+      </div>
+  
+      <div class="form-group">
+        <label for="color">Color</label>
+        <input id="color" formControlName="color"  type="text" placeholder="Enter product color" />
+      </div>
+  
+      <div class="form-group">
+        <label for="discount">Discount (%)</label>
+        <input id="discount" formControlName="discount"  type="number" placeholder="Enter discount" min="0" max="100" />
+      </div>
+  
+      <button type="submit">Submit</button>
+    </form>
+    
+  </div>
+  

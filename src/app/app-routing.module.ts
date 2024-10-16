@@ -7,6 +7,9 @@ import { UserComponent } from './components/user/user.component';
 import { AuthGuard } from './services/auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { ProductUpdateComponent } from './reusableComponents/product-update/product-update.component';
+import { CanDeactivateGuardService } from './services/candeactivate-guard.service';
+import { CreateProductComponent } from './components/create-product/create-product.component';
 
 export const routes: Routes = [
   {
@@ -30,7 +33,12 @@ export const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent
+        component: ProductsComponent,
+      },
+      {
+        path: 'editProduct/:id',
+        component: ProductUpdateComponent,
+        canDeactivate: [CanDeactivateGuardService]
       },
       {
         path: 'profile',
@@ -41,6 +49,10 @@ export const routes: Routes = [
         path: 'categories',
         component: CategoriesComponent,
         
+      },
+      {
+        path: 'add-product',
+        component: CreateProductComponent
       }
     ]
   }
@@ -49,7 +61,7 @@ export const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [AuthGuard, CanDeactivateGuardService]
 })
 export class AppRoutingModule { 
 
